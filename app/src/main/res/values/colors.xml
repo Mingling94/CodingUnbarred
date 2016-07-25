@@ -66,13 +66,13 @@ Fabric Core Color Variables -->
 
 
     <!-- Message colors -->
-    <color name="info">#00FF00</color>
-    <color name="infoBackground">#00FF00</color>
-    <color name="success">#00FF00</color>
+    <color name="info">#767676</color>
+    <color name="infoBackground">#f4f4f4</color>
+    <color name="success">#107c10</color>
     <color name="successBackground">#dff6dd</color>
-    <color name="severeWarning">#FF0000</color>
+    <color name="severeWarning">#d83b01</color>
     <color name="severeWarningBackground">#fed9cc</color>
-    <color name="warning">#0000FF</color>
+    <color name="warning">#767676</color>
     <color name="warningBackground">#fff4ce</color>
     <color name="error">#a80000</color>
     <color name="errorBackground">#fde7e9</color>
