@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
+Office UI Fabric
+Fabric Core Color Variables -->
+<resources>
+
+    <!-- Theme Colors -->
+    <color name="themeDarker">#004578</color>
+    <color name="themeDark">#005a9e</color>
+    <color name="themeDarkAlt">#106ebe</color>
+    <color name="themePrimary">#0078d7</color>
+    <color name="themeSecondary">#2b88d8</color>
+    <color name="themeTertiary">#71afe5</color>
+    <color name="themeLight">#c7e0f4</color>
+    <color name="themeLighter">#deecf9</color>
+    <color name="themeLighterAlt">#eff6fc</color>
+
+
+    <!-- Grayscale Colors -->
+    <color name="black">#000000</color>
+    <color name="neutralDark">#212121</color>
+    <color name="neutralPrimary">#333333</color>
+    <color name="neutralPrimaryAlt">#3C3C3C</color>
+    <color name="neutralSecondary">#666666</color>@
+    <color name="neutralSecondaryAlt">#767676</color >
+    <color name="neutralTertiary">#a6a6a6</color>@
+    <color name="neutralTertiaryAlt">#c8c8c8</color >
+    <color name="neutralQuaternary">#d0d0d0</color>
+    <color name="neutralQuaternaryAlt">#dadada</color>
+    <color name="neutralLight">#eaeaea</color >
+    <color name="neutralLighter">#f4f4f4</color>
+    <color name="neutralLighterAlt">#f8f8f8</color>
+    <color name="white">#ffffff</color>
+
+    <!-- Translucent Colors
+    $blackTranslucent40:  rgba(0,0,0,.4);
+    $whiteTranslucent40:  rgba(255,255,255,.4);
+    TODO: Not sure if the above can work in this file.
+    -->
+
+
+    <!-- Core brand and accent colors -->
+    <color name="yellow">#ffb900</color>
+    <color name="yellowLight">#fff100</color>
+    <color name="orange">#d83b01</color>
+    <color name="orangeLight">#ea4300</color>
+    <color name="orangeLighter">#ff8c00</color>
+    <color name="redDark">#a80000</color>
+    <color name="red">#e81123</color>
+    <color name="magentaDark">#5c005c</color>
+    <color name="magenta">#b4009e</color>
+    <color name="magentaLight">#e3008c</color>
+    <color name="purpleDark">#32145a</color>
+    <color name="purple">#5c2d91</color>
+    <color name="purpleLight">#b4a0ff</color >
+    <color name="blueDark">#002050</color>
+    <color name="blueMid">#00188f</color>
+    <color name="blue">#0078d7</color>
+    <color name="blueLight">#00bcf2</color>
+    <color name="tealDark">#004b50</color>
+    <color name="teal">#008272</color>
+    <color name="tealLight">#00b294</color>
+    <color name="greenDark">#004b1c</color>
+    <color name="green">#107c10</color>
+    <color name="greenLight">#bad80a</color>
+
+
+    <!-- Message colors -->
+    <color name="info">#76767</color>
+    <color name="infoBackground">#f4f4f</color>
+    <color name="success">#107c1</color>
+    <color name="successBackground">#dff6dd</color>
+    <color name="severeWarning">#d83b0</color>
+    <color name="severeWarningBackground">#fed9cc</color>
+    <color name="warning">#76767</color>
+    <color name="warningBackground">#fff4ce</color>
+    <color name="error">#a8000</color>
+    <color name="errorBackground">#fde7e9</color>
+
+
+    <!-- High contrast colors -->
+    <color name="contrastBlackDisabled">#00ff00</color>
+    <color name="contrastWhiteDisabled">#600000</color>
+    <color name="contrastBlackSelected">#1AEBFF</color>
+    <color name="contrastWhiteSelected">#37006E</color>
+    <color name="contrastBlackLink">#8080ff</color>
+    <color name="contrastWhiteLink">#00009F</color>
+</resources>
