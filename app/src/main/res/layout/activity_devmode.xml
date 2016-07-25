@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <WebView
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/WebBox"
-        android:layout_gravity="right"
-        android:layout_weight="0.26" />
+    android:orientation="horizontal" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Sample Lesson Here"
         android:id="@+id/LessonBox"
-        android:layout_weight="0.24" />
-
+        android:layout_weight=".33"
+        android:layout_height="fill_parent"
+        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="0dp"
+        android:layout_height="fill_parent" android:layout_weight=".33">
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/HTMLBox"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.24"
+        android:layout_weight="0.33"
         android:text="Sample HTML Code Here" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/CSSBox"
-        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.33"
         android:text="Sample CSS Code Here" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:ems="10"
+        android:layout_weight="0.33"
         android:id="@+id/JSBox1"
-        android:layout_gravity="center_horizontal"
         android:text="Sample Javasript Code Here" />
+    </LinearLayout>
+
+    <WebView
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/WebBox"
+        android:layout_weight=".33" />
 </LinearLayout>
