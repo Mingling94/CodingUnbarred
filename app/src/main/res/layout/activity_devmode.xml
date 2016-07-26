@@ -25,7 +25,7 @@
         android:inputType="textMultiLine"
         android:id="@+id/HTMLBox"
         android:layout_weight="0.33"
-        android:text="Sample HTML Code Here" />
+        android:hint="HTML Code Here" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
         android:inputType="textMultiLine"
         android:id="@+id/CSSBox"
         android:layout_weight="0.33"
-        android:text="Sample CSS Code Here" />
+        android:hint="CSS Code Here" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
         android:inputType="textMultiLine"
         android:layout_weight="0.33"
         android:id="@+id/JSBox1"
-        android:text="Sample Javasript Code Here" />
+        android:hint="Javasript Code Here" />
     </LinearLayout>
 
     <WebView
