@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "com.oneweek.miluo.myapplication"
+        applicationId "com.oneweek.miluo.codingunbarred"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
