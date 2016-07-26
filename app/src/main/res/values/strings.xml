@@ -1,6 +1,22 @@
 <resources>
-    <string name="app_name">Coding Off the Grid</string>
-    <string name="title_activity_resource">ResourceActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Title -->
+    <string name="app_name">Coding Unbarred</string>
+
+    <!-- Labels -->
+    <string name="main">Main</string>
+    <string name="course_selection">Course Selection</string>
+    <string name="resource_selection">Resource Selection</string>
+    <string name="devmode">Developer Mode</string>
+    <string name="resource">Resource</string>
+
+    <!-- Button texts -->
+    <string name="courses">Courses</string>
+    <string name="resources">Resources</string>
+    <string name="sandbox">Sandbox</string>
+
+    <!-- Misc. -->
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -90,5 +106,4 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="action_settings">Settings</string>
 </resources>

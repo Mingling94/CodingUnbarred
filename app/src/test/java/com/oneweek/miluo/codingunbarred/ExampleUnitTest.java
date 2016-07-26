@@ -1,4 +1,4 @@
-package com.oneweek.miluo.myapplication;
+package com.oneweek.miluo.codingunbarred;
 
 import org.junit.Test;
 
