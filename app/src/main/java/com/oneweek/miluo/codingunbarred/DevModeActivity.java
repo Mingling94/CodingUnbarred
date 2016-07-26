@@ -30,7 +30,6 @@ public class DevModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devmode);
         WebView webBox = (WebView)findViewById(R.id.WebBox);
-        //todo load webBox from our saved dynamic storage
 
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
@@ -49,6 +48,8 @@ public class DevModeActivity extends AppCompatActivity {
         } else {
             this.resetCodeSnippets();
         }
+
+        this.runCode();
     }
 
     @Override
@@ -59,7 +60,14 @@ public class DevModeActivity extends AppCompatActivity {
     }
 
     private void runCode() {
-        // TODO: run code
+        this.saveCodeSnippets();
+
+        Intent intent = getIntent();
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+
+        WebView webBox = (WebView)findViewById(R.id.WebBox);
+        webBox.getSettings().setJavaScriptEnabled(true);
+        webBox.loadUrl(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
     }
 
     private void populateEditors(String htmlSnippet, String cssSnippet, String jsSnippet) {
