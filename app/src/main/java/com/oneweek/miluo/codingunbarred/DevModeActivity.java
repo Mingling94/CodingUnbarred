@@ -31,8 +31,10 @@ public class DevModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_devmode);
         WebView webBox = (WebView)findViewById(R.id.WebBox);
 
-        Intent intent = getIntent();
-        String lessonName = intent.getStringExtra(LESSON_NAME);
+        //Intent intent = getIntent();
+        //String lessonName = intent.getStringExtra("LESSON_NAME");
+
+        String lessonName = "asdf";
 
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
