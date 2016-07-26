@@ -12,9 +12,9 @@
     <string name="resource">Resource</string>
 
     <!-- Button texts -->
-    <string name="courses">Courses</string>
-    <string name="resources">Resources</string>
-    <string name="sandbox">Sandbox</string>
+    <string name="courses">{fa-graduation-cap} Courses</string>
+    <string name="resources">{fa-book} Resources</string>
+    <string name="sandbox">{fa-pencil-square-o} Practice</string>
 
     <!-- Misc. -->
     <string name="large_text">
