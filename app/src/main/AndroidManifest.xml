@@ -15,7 +15,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,10 +27,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <activity android:name=".DevModeActivity">
-        </activity>
-        <activity android:name=".DevModeActivity">
-        </activity>
+        <activity android:name=".CourseSelectionActivity" />
+        <activity android:name=".ResourceSelectionActivity" />
+        <activity android:name=".DeveloperModeActivity" />
+>>>>>>> Three other activities to navigate to
     </application>
 
 </manifest>

@@ -22,32 +22,30 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lessons"
-        android:id="@+id/button"
+        android:text="Courses"
+        android:id="@+id/courses"
         android:background="#FFFFFF"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resources"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:id="@+id/resources"
         android:background="#FFFFFF"
-        android:onClick="goToResources" />
-
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="showResourceSelection" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sandbox"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:background="#FFFFFF" />
+        android:id="@+id/sandbox"
+        android:background="#FFFFFF"
+        android:onClick="showSandbox"
+        android:layout_below="@+id/resources"
+        android:layout_alignLeft="@+id/resources"
+        android:layout_alignStart="@+id/resources" />
 
 </RelativeLayout>
