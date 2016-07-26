@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.weirdtube.wtf/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" id="www-widgetapi-script" src="./webexample_files/www-widgetapi.js" async=""></script><script src="./webexample_files/iframe_api"></script><script src="./webexample_files/jquery.min.js"></script>
+<script type="text/javascript" src="./webexample_files/jQuery.tubeplayer.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./webexample_files/WeirdStyle.css">
+</head><body class=" hasGoogleVoiceExt"><div id="cssmenu">
+<ul>
+   <li class="active"><a href="http://www.weirdtube.wtf/"><span>Home</span></a></li>
+   
+   
+    <li><a href="http://www.weirdtube.wtf/login"><span>Log In</span></a></li>
+    <li><a href="http://www.weirdtube.wtf/register"><span>Register</span></a></li>
+   
+   <!--<li class='last'><a href='#'><span>About Us</span></a></li>-->
+</ul>
+</div>
+
+<div id="title">
+<t1>The Weird Part of YouTube</t1>
+</div>
+<div id="theatre-box">
+<div id="youtube-player-container" class="jquery-youtube-tubeplayer">
+    <a class="playerbutton" onclick="
+    document.querySelector(&quot;#theatre-box&quot;).style.visibility = &quot;hidden&quot;;
+
+    document.querySelector(&quot;#cssmenu&quot;).style.visibility = &quot;visible&quot;;
+    document.querySelector(&quot;#title&quot;).style.visibility = &quot;visible&quot;;
+    document.querySelector(&quot;#gobutt&quot;).style.visibility = &quot;visible&quot;;
+
+    jQuery(&quot;#youtube-player-container&quot;).tubeplayer(&quot;stop&quot;);">
+        <span>Exit</span>
+    </a>
+    <a class="playerbutton" onclick="playNextVid();">
+        <span>Next</span>
+    </a>
+    <br>
+  <iframe id="tubeplayer-player-container-75aa25dc-8ffa-4319-85b7-3f15baadca05" frameborder="0" allowfullscreen="1" title="YouTube video player" width="800" height="600" src="./webexample_files/_UVfqA_2pcA.html"></iframe></div>
+
+<a href="http://www.weirdtube.wtf/#" onclick="jQuery(&quot;#youtube-player-container&quot;).tubeplayer(&quot;play&quot;, document.getElementById(&quot;videoID&quot;).value)">
+
+</a>
+</div>
+    <a class="gobutton" id="gobutt" onclick="document.querySelector(&#39;#theatre-box&#39;).style.visibility = &#39;visible&#39;;
+    document.querySelector(&#39;#cssmenu&#39;).style.visibility = &#39;hidden&#39;;
+    document.querySelector(&#39;#title&#39;).style.visibility = &#39;hidden&#39;;
+    document.querySelector(&#39;#gobutt&#39;).style.visibility = &#39;hidden&#39;;
+    jQuery(&#39;#youtube-player-container&#39;).tubeplayer(&#39;play&#39;);">
+        <span>Get Weird</span>
+    </a>
+
+<script type="text/javascript">
+        function playNextVid() {
+          $.getJSON("./api/getrandomvid", function(vid) {
+            console.log(vid);
+            jQuery("#youtube-player-container").tubeplayer("play", vid.vidID);
+          });
+        }
+        $(document).keydown(function(e) {
+                switch(e.which) {
+                    case 39: // right (fast-forward)
+                      playNextVid();
+                    break;
+                    case 32: // right (fast-forward)
+                      playNextVid();
+                    break;
+                    default: return; // exit this handler for other keys
+                }
+                e.preventDefault(); // prevent the default action (scroll / move caret)
+            });
+
+        jQuery("#youtube-player-container").tubeplayer({
+	width: 800, // the width of the player
+	height: 600, // the height of the player
+	allowFullScreen: "true", // true by default, allow user to go full screen
+	initialVideo: "_UVfqA_2pcA", // the video that is loaded into the player
+	preferredQuality: "default",// preferred quality: default, small, medium, large, hd720
+	onPlay: function(id){}, // after the play method is called
+	onPause: function(){}, // after the pause method is called
+	onStop: function(){}, // after the player is stopped
+	onSeek: function(time){}, // after the video has been seeked to a defined point
+	onMute: function(){},
+	onPlayerEnded: function(){
+		playNextVid();
+        },
+	onPlayerPlaying: function(){
+		var theatrebox = document.querySelector("#theatre-box");
+		theatrebox.style.visibility = "visibile";
+
+
+		var title = document.querySelector("#title");
+		title.style.visibility = "hidden";
+	}, // after the player is muted
+	onUnMute: function(){}, // after the player is unmuted
+        // Error State Specific Functionality
+	onErrorNotFound: function(){playNextVid();}, // if a video cant be found
+	onErrorNotEmbeddable: function(){playNextVid();}, // if a video isnt embeddable
+	onErrorInvalidParameter: function(){playNextVid();} // if we've got an invalid param
+});</script>
+
+</body></html>
