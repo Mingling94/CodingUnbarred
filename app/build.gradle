@@ -23,11 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-<<<<<<< b4795f1377a2673c9c5236ed9a805614f646bf82
-    compile 'com.android.support:design:23.4.0'
-}
-=======
     compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2' // (v4.5)
     compile 'com.joanzapata.iconify:android-iconify-entypo:2.2.2'
     }
->>>>>>> Got the icons to workgit add .!
