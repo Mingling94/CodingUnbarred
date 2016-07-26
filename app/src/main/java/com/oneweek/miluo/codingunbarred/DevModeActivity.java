@@ -1,27 +1,18 @@
 package com.oneweek.miluo.codingunbarred;
 
-import android.graphics.Typeface;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 
 public class DevModeActivity extends AppCompatActivity {
 
@@ -46,6 +37,13 @@ public class DevModeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
+
+
+        //code to load in the lesson(requires a lessonname taken from the intent)
+        WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
+        lessonBox.getSettings().setJavaScriptEnabled(true);
+        lessonBox.loadUrl("file:///android_asset/lessons/" + lessonName + "/" + lessonName + ".html");
+
 
         EditText htmlEditor = (EditText)findViewById(R.id.HTMLBox);
         EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
