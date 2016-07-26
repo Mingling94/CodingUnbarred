@@ -28,18 +28,15 @@ public class DevModeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devmode);
-        WebView webView = (WebView)findViewById(R.id.WebBox);
-        File htmlFile = new File("file:///android_asset/webexample.html");
-        if(htmlFile.exists()) {
-            webView.loadUrl(htmlFile.getAbsolutePath());
-        }
+        WebView webBox = (WebView)findViewById(R.id.WebBox);
+        //todo load webBox from our saved dynamic storage
 
 
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
 
 
-        //code to load in the lesson(requires a lessonname taken from the intent)
+        //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
         lessonBox.loadUrl("file:///android_asset/lessons/" + lessonName + "/" + lessonName + ".html");
@@ -59,6 +56,7 @@ public class DevModeActivity extends AppCompatActivity {
             jsEditor.setText(jsSnippet);
         } else {
             // TODO: populate snippets from assets
+
             this.saveCodeSnippets();
         }
     }
