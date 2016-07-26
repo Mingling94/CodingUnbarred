@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".DevModeActivity">
         </activity>
+        <activity android:name=".DevModeActivity">
+        </activity>
     </application>
 
 </manifest>

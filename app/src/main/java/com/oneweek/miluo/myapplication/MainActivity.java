@@ -8,6 +8,10 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
+import android.content.Intent;
+
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final Button button = (Button) findViewById(R.id.button);
+        assert button != null;
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent i = new Intent(MainActivity.this, DevModeActivity.class);
+                startActivity(i);
+            }
+        });
         final Button button = (Button) findViewById(R.id.button);
         assert button != null;
         button.setOnClickListener(new View.OnClickListener() {
