@@ -3,6 +3,8 @@
 
     <!-- Title -->
     <string name="app_name">Coding Unbarred</string>
+    <string name="reset_button">Reset</string>
+    <string name="run_button">Run</string>
 
     <!-- Labels -->
     <string name="main">Main</string>

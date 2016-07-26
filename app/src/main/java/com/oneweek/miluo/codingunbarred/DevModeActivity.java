@@ -12,11 +12,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class DevModeActivity extends AppCompatActivity {
 
-    private static final String LESSON_NAME = "LESSON_NAME";
+    public static final String LESSON_NAME = "LESSON_NAME";
 
     private static final String HTML_EXTENSION = ".html";
 
@@ -31,33 +32,22 @@ public class DevModeActivity extends AppCompatActivity {
         WebView webBox = (WebView)findViewById(R.id.WebBox);
         //todo load webBox from our saved dynamic storage
 
-
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
-
 
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
         lessonBox.loadUrl("file:///android_asset/lessons/" + lessonName + "/" + lessonName + ".html");
 
-
-        EditText htmlEditor = (EditText)findViewById(R.id.HTMLBox);
-        EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
-        EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
-
-        String htmlSnippet = tryReadFile(getFilename(lessonName, HTML_EXTENSION));
-        String cssSnippet = tryReadFile(getFilename(lessonName, CSS_EXTENSION));
-        String jsSnippet = tryReadFile(getFilename(lessonName, JS_EXTENSION));
+        String htmlSnippet = tryReadFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
+        String cssSnippet = tryReadFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION));
+        String jsSnippet = tryReadFile(getSavedSnippetFilename(lessonName, JS_EXTENSION));
 
         if (htmlSnippet != null && cssSnippet != null && jsSnippet != null) {
-            htmlEditor.setText(htmlSnippet);
-            cssEditor.setText(cssSnippet);
-            jsEditor.setText(jsSnippet);
+            this.populateEditors(htmlSnippet, cssSnippet, jsSnippet);
         } else {
-            // TODO: populate snippets from assets
-
-            this.saveCodeSnippets();
+            this.resetCodeSnippets();
         }
     }
 
@@ -68,8 +58,33 @@ public class DevModeActivity extends AppCompatActivity {
         this.saveCodeSnippets();
     }
 
-    private void saveCodeSnippets() {
+    private void runCode() {
+        // TODO: run code
+    }
 
+    private void populateEditors(String htmlSnippet, String cssSnippet, String jsSnippet) {
+        EditText htmlEditor = (EditText)findViewById(R.id.HTMLBox);
+        EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
+        EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
+
+        htmlEditor.setText(htmlSnippet);
+        cssEditor.setText(cssSnippet);
+        jsEditor.setText(jsSnippet);
+    }
+
+    private void resetCodeSnippets() {
+        Intent intent = getIntent();
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+
+        String htmlSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, HTML_EXTENSION));
+        String cssSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, CSS_EXTENSION));
+        String jsSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, JS_EXTENSION));
+
+        this.populateEditors(htmlSnippet, cssSnippet, jsSnippet);
+        this.saveCodeSnippets();
+    }
+
+    private void saveCodeSnippets() {
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
 
@@ -77,18 +92,47 @@ public class DevModeActivity extends AppCompatActivity {
         EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
         EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
 
-        saveFile(getFilename(lessonName, HTML_EXTENSION), htmlEditor.getText().toString());
-        saveFile(getFilename(lessonName, CSS_EXTENSION), cssEditor.getText().toString());
-        saveFile(getFilename(lessonName, JS_EXTENSION), jsEditor.getText().toString());
+        saveFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION), htmlEditor.getText().toString());
+        saveFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION), cssEditor.getText().toString());
+        saveFile(getSavedSnippetFilename(lessonName, JS_EXTENSION), jsEditor.getText().toString());
     }
 
-    private String getFilename(String lessonName, String suffix) {
+    private String getDefaultSnippetFilename(String lessonName, String suffix) {
+        return "file:///android_asset/" + lessonName + "/snippets/" + lessonName + suffix;
+    }
+
+    private String getSavedSnippetFilename(String lessonName, String suffix) {
         return new File(new File(lessonName), lessonName + suffix).getPath();
+    }
+
+    private String tryReadAsset(String filename) {
+        InputStream inputStream;
+        StringBuilder buffer = new StringBuilder();
+
+        try {
+            inputStream = getAssets().open(filename);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String line = reader.readLine();
+            while (line != null) {
+                buffer.append(buffer);
+                line = reader.readLine();
+            }
+
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return buffer.toString();
     }
 
     private String tryReadFile(String filename) {
         FileInputStream inputStream;
-        StringBuilder buffer = new StringBuilder();;
+        StringBuilder buffer = new StringBuilder();
 
         try {
             inputStream = openFileInput(filename);
