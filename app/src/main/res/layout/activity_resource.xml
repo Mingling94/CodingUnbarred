@@ -7,7 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    tools:context="com.oneweek.miluo.myapplication.MainActivity">
+    tools:context=".MainActivity">
 
     <WebView
       android:id="@+id/wv"

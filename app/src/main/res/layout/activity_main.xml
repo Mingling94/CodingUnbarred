@@ -7,46 +7,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.oneweek.miluo.codingunbarred.MainActivity"
-    android:background="#383838">
+    tools:context=".MainActivity"
+    android:background="#333333">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Coding Unbarred"
-        android:id="@+id/textView"
+        android:id="@+id/title"
         android:textColor="#FFFFFF"
+        android:textSize="60px"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <com.joanzapata.iconify.widget.IconButton
+        android:layout_width="350px"
         android:layout_height="wrap_content"
         android:text="@string/courses"
         android:id="@+id/courses"
-        android:background="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/yellow_button"
+        android:layout_marginBottom="25dp"
         android:layout_above="@+id/resources"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
         android:onClick="showCourseSelection" />
-    <Button
-        android:layout_width="wrap_content"
+
+    <com.joanzapata.iconify.widget.IconButton
+        android:layout_width="350px"
         android:layout_height="wrap_content"
         android:text="@string/resources"
         android:id="@+id/resources"
-        android:background="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonborder"
         android:onClick="showResourceSelection" />
-    <Button
-        android:layout_width="wrap_content"
+
+    <com.joanzapata.iconify.widget.IconButton
+        android:layout_width="350px"
         android:layout_height="wrap_content"
         android:text="@string/sandbox"
         android:id="@+id/sandbox"
-        android:background="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:layout_below="@+id/resources"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/orange_button"
         android:onClick="showSandbox" />
 
 </RelativeLayout>
