@@ -1,17 +1,13 @@
 package com.oneweek.miluo.codingunbarred;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.widget.EditText;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,11 +38,11 @@ public class DevModeActivity extends AppCompatActivity {
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
-        lessonBox.loadUrl("file:///android_asset/" + "courses/" + courseName + "/lessons/" + lessonName + "/" + lessonName + ".html");
+        lessonBox.loadUrl(getAssetLessonFilename());
 
-        String htmlSnippet = tryReadFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
-        String cssSnippet = tryReadFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION));
-        String jsSnippet = tryReadFile(getSavedSnippetFilename(lessonName, JS_EXTENSION));
+        String htmlSnippet = tryReadFile(getSavedSnippetFile(HTML_EXTENSION));
+        String cssSnippet = tryReadFile(getSavedSnippetFile(CSS_EXTENSION));
+        String jsSnippet = tryReadFile(getSavedSnippetFile(JS_EXTENSION));
 
         if (htmlSnippet != null && cssSnippet != null && jsSnippet != null) {
             this.populateEditors(htmlSnippet, cssSnippet, jsSnippet);
@@ -67,15 +63,9 @@ public class DevModeActivity extends AppCompatActivity {
     private void runCode() {
         this.saveCodeSnippets();
 
-        Intent intent = getIntent();
-        String lessonName = intent.getStringExtra(LESSON_NAME);
-        String courseName = intent.getStringExtra(COURSE_NAME);
-
-
         WebView webBox = (WebView)findViewById(R.id.WebBox);
         webBox.getSettings().setJavaScriptEnabled(true);
-        //fix below code to give it a real path
-        webBox.loadUrl(getSavedSnippetFilename(lessonName, HTML_EXTENSION).getAbsolutePath());
+        webBox.loadUrl(getSavedSnippetFile(HTML_EXTENSION).getAbsolutePath());
     }
 
     private void populateEditors(String htmlSnippet, String cssSnippet, String jsSnippet) {
@@ -89,41 +79,46 @@ public class DevModeActivity extends AppCompatActivity {
     }
 
     private void resetCodeSnippets() {
-        Intent intent = getIntent();
-        String lessonName = intent.getStringExtra(LESSON_NAME);
-        String courseName = intent.getStringExtra(COURSE_NAME);
-
-        //fix below code to have course name too
-        String htmlSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, HTML_EXTENSION));
-        String cssSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, CSS_EXTENSION));
-        String jsSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, JS_EXTENSION));
+        String htmlSnippet = tryReadAsset(getAssetSnippetFilename(HTML_EXTENSION));
+        String cssSnippet = tryReadAsset(getAssetSnippetFilename(CSS_EXTENSION));
+        String jsSnippet = tryReadAsset(getAssetSnippetFilename(JS_EXTENSION));
 
         this.populateEditors(htmlSnippet, cssSnippet, jsSnippet);
         this.saveCodeSnippets();
     }
 
     private void saveCodeSnippets() {
-        Intent intent = getIntent();
-        String lessonName = intent.getStringExtra(LESSON_NAME);
-        String courseName = intent.getStringExtra(COURSE_NAME);
-
         EditText htmlEditor = (EditText)findViewById(R.id.HTMLBox);
         EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
         EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
 
-        //pass coursename in here
-        saveFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION), htmlEditor.getText().toString());
-        saveFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION), cssEditor.getText().toString());
-        saveFile(getSavedSnippetFilename(lessonName, JS_EXTENSION), jsEditor.getText().toString());
+        this.saveFile(getSavedSnippetFile(HTML_EXTENSION), htmlEditor.getText().toString());
+        this.saveFile(getSavedSnippetFile(CSS_EXTENSION), cssEditor.getText().toString());
+        this.saveFile(getSavedSnippetFile(JS_EXTENSION), jsEditor.getText().toString());
     }
 
-    private String getDefaultSnippetFilename(String lessonName, String suffix) {
+    private String getAssetLessonFilename() {
+        Intent intent = getIntent();
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
 
-        return "file:///android_asset/" + lessonName + "/preloadedCode/" + lessonName + suffix;
+        return "file:///android_asset/courses/" + courseName + "/" + lessonName + HTML_EXTENSION;
     }
 
-    private File getSavedSnippetFilename(String lessonName, String suffix) {
-        return new File(new File(getFilesDir(), lessonName), lessonName + suffix);
+    private String getAssetSnippetFilename(String suffix) {
+        Intent intent = getIntent();
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
+
+        return "courses/" + courseName + "/" + lessonName + "/preloadedCode/" + lessonName + suffix;
+    }
+
+    private File getSavedSnippetFile(String suffix) {
+        Intent intent = getIntent();
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
+
+        return new File(new File(new File(getFilesDir(), courseName), lessonName), lessonName + suffix);
     }
 
     private String tryReadAsset(String filename) {
@@ -136,7 +131,7 @@ public class DevModeActivity extends AppCompatActivity {
 
             String line = reader.readLine();
             while (line != null) {
-                buffer.append(buffer);
+                buffer.append(line);
                 line = reader.readLine();
             }
 
