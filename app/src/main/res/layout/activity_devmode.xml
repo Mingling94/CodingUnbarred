@@ -2,45 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="36dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/reset_button"
-            android:id="@+id/resetButton"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/orange_button"
-            android:onClick="resetButtonClick"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/run_button"
-            android:id="@+id/runButton"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/buttonborder"
-            android:onClick="runButtonClick"/>
-    </LinearLayout>
-
+    
     <HorizontalScrollView
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+        android:background="@color/background_material_dark">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/DevModeLayout">
     <WebView
-        android:layout_width="300dp"
+        android:layout_width="500dp"
         android:layout_height="fill_parent"
         android:id="@+id/LessonBox"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="300dp"
+        android:orientation="vertical" android:layout_width="500dp"
         android:layout_height="fill_parent">
     <EditText
         android:layout_width="fill_parent"
@@ -90,10 +67,42 @@
         android:textColor="@color/abc_primary_text_material_dark"
         android:padding="5px"
         android:textColorHint="@color/abc_secondary_text_material_dark" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/black"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/background_material_dark"
+            android:padding="2dp"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_button"
+                android:id="@+id/resetButton"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/orange_button"
+                android:onClick="resetButtonClick"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/run_button"
+                android:id="@+id/runButton"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/buttonborder"
+                android:onClick="runButtonClick"/>
+        </LinearLayout>
     </LinearLayout>
 
     <WebView
-        android:layout_width="300dp"
+        android:layout_width="500dp"
         android:layout_height="fill_parent"
         android:id="@+id/WebBox"/>
 </LinearLayout>
