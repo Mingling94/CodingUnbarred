@@ -1,0 +1,106 @@
+/* ========== layout ========== */
+body {
+	background: #444 url(./css-img/bg_body.png);
+	line-height: 1.4em;
+	margin: 0;
+	padding: 0;
+	}
+#wrap {
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	text-align: left;
+	width: 900px;
+	}
+#logo {
+	background: url(./css-img/bg_header.jpg) no-repeat top right;
+	width: 100%;
+	}
+#logotext {
+	padding: 1em;
+	}
+
+/* Commented Backslash Hack
+     hides rule from IE5-Mac \*/
+#main-body {clear:left;}
+/* End IE5-Mac hack */
+
+#main-body {
+	width: 720px;
+	}
+#content {
+	margin: 0;
+	padding: 20px;
+	border-right: 1px solid #aaa;
+	min-height: 560px; /* 410px; */
+	}
+#sidebar {
+	margin: 0;
+	padding: 20px;
+	width: 140px;
+	float: right;
+	line-height: 1.5em;
+	background: #DEDEDE url(./css-img/bg_sidebar.gif) no-repeat top right;
+	}
+
+#sidebar ul li {
+	padding: 0 0 0px 15px;
+	}
+	
+pre {
+	margin: 0;
+	padding: 0;
+	line-height: 1.2em;
+	text-align: left;
+	}
+pre.code {
+	/* margin-top: -1em; */
+	border: 1px solid #999;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	}
+div.dash {
+	text-align: justify;
+	}
+
+#cheatsheet {
+	margin: 0;
+	}
+#cheatsheet table {
+	border: none;
+	line-height: 1.1em;
+	margin: 0 0 8px 0; /* 8px bottom */
+	padding: 0;
+	width: 100%;
+	}
+#cheatsheet tr {
+	margin: 0px;
+	padding: 0px;
+	}
+#cheatsheet th {
+	padding-bottom: 8px;
+	}
+#cheatsheet th.toplink {
+	text-align: right;
+	vertical-align: top;
+	}
+#cheatsheet td {
+	margin: 0px;
+	padding: 0px;
+	}
+#cheatsheet td.code {
+	color: #772;
+	width: 240px;
+	padding-right: 5px;
+	}
+#cheatsheet td.codeindt {
+	color: #772;
+	padding-left: 14px;
+	width: 226px;
+	}
+#cheatsheet pre.code {
+	background-color: transparent;
+	border: none;
+	padding: 2px 0px;
+	}
+	

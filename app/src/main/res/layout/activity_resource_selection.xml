@@ -10,14 +10,10 @@
     tools:context=".ResourceSelectionActivity"
     android:background="#333333">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/resource_selection"
-        android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp" />
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/resourceBox"/>
+
 
 </RelativeLayout>
