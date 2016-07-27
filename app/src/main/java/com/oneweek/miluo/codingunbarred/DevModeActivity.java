@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,6 +20,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class DevModeActivity extends AppCompatActivity {
+
+    public static final String SANDBOX = "sandbox";
 
     public static final String COURSE_NAME = "COURSE_NAME";
 
@@ -34,10 +38,18 @@ public class DevModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devmode);
 
+        Intent intent = getIntent();
+        String courseName = intent.getStringExtra(COURSE_NAME);
+
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
-        lessonBox.getSettings().setJavaScriptEnabled(true);
-        lessonBox.loadUrl(getAssetLessonFilename());
+        if (courseName.equals(SANDBOX)) {
+            LinearLayout parentLayout = (LinearLayout)findViewById((R.id.DevModeLayout));
+            parentLayout.removeView(lessonBox);
+        } else {
+            lessonBox.getSettings().setJavaScriptEnabled(true);
+            lessonBox.loadUrl(getAssetLessonFilename());
+        }
 
         String htmlSnippet = tryReadFile(getSavedSnippetFile(HTML_EXTENSION));
         String cssSnippet = tryReadFile(getSavedSnippetFile(CSS_EXTENSION));
@@ -150,7 +162,7 @@ public class DevModeActivity extends AppCompatActivity {
 
             inputStream.close();
         } catch (FileNotFoundException e) {
-            return null;
+            // do nothing and return empty string (hacky :<)
         } catch (IOException e) {
             e.printStackTrace();
             return null;
