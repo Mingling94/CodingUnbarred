@@ -31,6 +31,4 @@
         <activity android:name=".DevModeActivity"
             android:label="@string/devmode" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

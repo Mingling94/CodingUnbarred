@@ -3,7 +3,6 @@ package com.oneweek.miluo.codingunbarred;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.webkit.WebView;
 import android.widget.EditText;
 import java.io.BufferedReader;
@@ -32,15 +31,10 @@ public class DevModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devmode);
 
-        Intent intent = getIntent();
-        String lessonName = intent.getStringExtra(LESSON_NAME);
-        String courseName = intent.getStringExtra(COURSE_NAME);
-
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
-        String filename = "file:///android_asset/courses/" + courseName + "/" + lessonName + "/" + lessonName + HTML_EXTENSION;
-        lessonBox.loadUrl(filename);
+        lessonBox.loadUrl(getAssetLessonFilename());
 
         String htmlSnippet = tryReadFile(getSavedSnippetFile(HTML_EXTENSION));
         String cssSnippet = tryReadFile(getSavedSnippetFile(CSS_EXTENSION));
@@ -94,9 +88,12 @@ public class DevModeActivity extends AppCompatActivity {
         EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
         EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
 
-        this.saveFile(getSavedSnippetFile(HTML_EXTENSION), htmlEditor.getText().toString());
-        this.saveFile(getSavedSnippetFile(CSS_EXTENSION), cssEditor.getText().toString());
-        this.saveFile(getSavedSnippetFile(JS_EXTENSION), jsEditor.getText().toString());
+        File htmlFilename = getSavedSnippetFile(HTML_EXTENSION);
+        String htmlCode = htmlEditor.getText().toString();
+        saveFile(htmlFilename, htmlCode);
+
+        saveFile(getSavedSnippetFile(CSS_EXTENSION), cssEditor.getText().toString());
+        saveFile(getSavedSnippetFile(JS_EXTENSION), jsEditor.getText().toString());
     }
 
     private String getAssetLessonFilename() {
@@ -104,7 +101,7 @@ public class DevModeActivity extends AppCompatActivity {
         String lessonName = intent.getStringExtra(LESSON_NAME);
         String courseName = intent.getStringExtra(COURSE_NAME);
 
-        return "file:///android_asset/courses/" + courseName + "/" + lessonName + HTML_EXTENSION;
+        return "file:///android_asset/courses/" + courseName + "/" + lessonName + "/" + lessonName + HTML_EXTENSION;
     }
 
     private String getAssetSnippetFilename(String suffix) {
@@ -157,7 +154,6 @@ public class DevModeActivity extends AppCompatActivity {
         StringBuilder buffer = new StringBuilder();
 
         try {
-
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line = reader.readLine();
@@ -180,6 +176,15 @@ public class DevModeActivity extends AppCompatActivity {
 
     private void saveFile(File file, String snippet) {
         try {
+            if (!file.exists()) {
+                File dir = file.getParentFile();
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+
+                file.createNewFile();
+            }
+
             FileWriter writer = new FileWriter(file);
             writer.write(snippet);
             writer.close();
