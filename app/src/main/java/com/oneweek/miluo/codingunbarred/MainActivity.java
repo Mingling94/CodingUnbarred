@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.EntypoModule;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         Iconify.with(new FontAwesomeModule());
+        Iconify.with(new EntypoModule());
+        setContentView(R.layout.activity_main);
+
 
         TextView tv1=(TextView)findViewById(R.id.main_title);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/segoeuil.ttf");
