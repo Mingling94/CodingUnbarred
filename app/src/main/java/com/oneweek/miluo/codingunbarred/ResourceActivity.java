@@ -30,6 +30,7 @@ public class ResourceActivity extends AppCompatActivity {
 
     }
 
+    // TODO: might not be needed, depends on the way we set up the webpage caches
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService( CONNECTIVITY_SERVICE );
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
