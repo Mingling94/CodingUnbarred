@@ -33,7 +33,7 @@ public class CourseSelectionActivity extends AppCompatActivity {
         // Set Grid's adapter
         GridView grid = (GridView) findViewById(R.id.course_grid);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, courseNames);
+                R.layout.grid_item, courseNames);
         grid.setAdapter(adapter);
 
         // Set on click listener per grid item

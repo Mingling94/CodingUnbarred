@@ -35,14 +35,14 @@ public class LessonSelectionActivity extends AppCompatActivity {
         // Set Grid's adapter
         GridView grid = (GridView) findViewById(R.id.lesson_grid);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, lessonNames);
+                R.layout.grid_item, lessonNames);
         grid.setAdapter(adapter);
 
         // Set on click listener per grid item
         final Context self = this;
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Intent intent = new Intent(self, LessonSelectionActivity.class);
+                Intent intent = new Intent(self, DevModeActivity.class);
 
                 String lessonName = lessonNames[position];
                 intent.putExtra(CourseSelectionActivity.COURSE_NAME, courseName);
