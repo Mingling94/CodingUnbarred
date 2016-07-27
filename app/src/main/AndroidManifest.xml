@@ -31,5 +31,4 @@
         <activity android:name=".DevModeActivity"
             android:label="@string/devmode" />
     </application>
-
 </manifest>

@@ -2,20 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-<HorizontalScrollView
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_button"
+            android:id="@+id/resetButton"
+            android:onClick="resetCodeSnippets"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/run_button"
+            android:id="@+id/runButton"
+            android:onClick="runCode"/>
+    </LinearLayout>
+
+    <HorizontalScrollView
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-
-    <TextView
+    <WebView
         android:layout_width="300dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Sample Lesson Here"
-        android:id="@+id/LessonBox"
         android:layout_height="fill_parent"
-        />
+        android:id="@+id/LessonBox"/>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="300dp"
         android:layout_height="fill_parent">
