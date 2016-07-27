@@ -3,12 +3,14 @@ package com.oneweek.miluo.codingunbarred;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -21,6 +23,11 @@ public class LessonSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_selection);
+
+        // Set title font
+        TextView title =(TextView)findViewById(R.id.lesson_selection_title);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/segoeuil.ttf");
+        title .setTypeface(face);
 
         // Get lesson names
         Intent intent = getIntent();

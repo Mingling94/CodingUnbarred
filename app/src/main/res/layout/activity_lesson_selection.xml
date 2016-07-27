@@ -26,6 +26,8 @@
         android:id="@+id/lesson_grid"
         android:layout_below="@+id/lesson_selection_title"
         android:layout_centerHorizontal="true"
-        android:numColumns="auto_fit" />
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"/>
 
 </RelativeLayout>

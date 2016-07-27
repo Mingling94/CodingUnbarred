@@ -2,8 +2,12 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/grid_item"
 android:textColor="#FFFFFF"
+android:background="@drawable/yellow_button"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
+android:layout_weight=".3"
+android:layout_centerVertical="true"
+android:layout_centerHorizontal="true"
 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-android:gravity="center_vertical"
+android:gravity="center"
 android:minHeight="?android:attr/listPreferredItemHeightSmall" />
