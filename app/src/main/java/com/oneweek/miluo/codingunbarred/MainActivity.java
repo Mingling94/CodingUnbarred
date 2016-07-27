@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         TextView tv1=(TextView)findViewById(R.id.main_title);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/segoeuil.ttf");
         tv1.setTypeface(face);
