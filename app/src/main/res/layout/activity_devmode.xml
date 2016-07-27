@@ -45,7 +45,16 @@
         android:id="@+id/HTMLBox"
         android:layout_weight="0.33"
         android:hint="HTML Code Here"
-        android:gravity="top" />
+        android:gravity="top"
+        android:background="@color/background_material_dark"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:textColorHint="@color/abc_secondary_text_material_dark"
+        android:padding="5px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -54,7 +63,16 @@
         android:id="@+id/CSSBox"
         android:layout_weight="0.33"
         android:hint="CSS Code Here"
-        android:gravity="top" />
+        android:gravity="top"
+        android:background="@color/background_material_dark"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:padding="5px"
+        android:textColorHint="@color/abc_secondary_text_material_dark" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -63,7 +81,11 @@
         android:layout_weight="0.33"
         android:id="@+id/JSBox1"
         android:hint="Javasript Code Here"
-        android:gravity="top" />
+        android:gravity="top"
+        android:background="@color/background_material_dark"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:padding="5px"
+        android:textColorHint="@color/abc_secondary_text_material_dark" />
     </LinearLayout>
 
     <WebView
