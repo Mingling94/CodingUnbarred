@@ -1,1 +1,1 @@
-Hello JS!
+This is where you will write your javascript code!
