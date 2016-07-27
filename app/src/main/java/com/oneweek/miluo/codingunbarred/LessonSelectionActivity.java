@@ -9,31 +9,33 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
 import java.io.IOException;
 
-public class CourseSelectionActivity extends AppCompatActivity {
-    public final static String COURSE_NAME = "COURSE_NAME";
-    public final static String COURSE_DIRECTORY = "courses";
+public class LessonSelectionActivity extends AppCompatActivity {
+    public final static String LESSON_NAME = "LESSON_NAME";
 
-    private String[] courseNames;
+    private String[] lessonNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_selection);
+        setContentView(R.layout.activity_lesson_selection);
 
-        // Get course names
+        // Get lesson names
+        Intent intent = getIntent();
+        final String courseName = intent.getStringExtra(CourseSelectionActivity.COURSE_NAME);
         AssetManager assets = getAssets();
         try {
-            courseNames = assets.list(COURSE_DIRECTORY);
+            lessonNames = assets.list(CourseSelectionActivity.COURSE_DIRECTORY + '/' + courseName);
         } catch (IOException e) {
             return;
         }
 
         // Set Grid's adapter
-        GridView grid = (GridView) findViewById(R.id.course_grid);
+        GridView grid = (GridView) findViewById(R.id.lesson_grid);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, courseNames);
+                android.R.layout.simple_list_item_1, lessonNames);
         grid.setAdapter(adapter);
 
         // Set on click listener per grid item
@@ -42,8 +44,9 @@ public class CourseSelectionActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent intent = new Intent(self, LessonSelectionActivity.class);
 
-                String courseName = courseNames[position];
+                String lessonName = lessonNames[position];
                 intent.putExtra(CourseSelectionActivity.COURSE_NAME, courseName);
+                intent.putExtra(LessonSelectionActivity.LESSON_NAME, lessonName);
 
                 startActivity(intent);
             }

@@ -7,17 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ResourceSelectionActivity"
+    tools:context=".LessonSelectionActivity"
     android:background="#333333">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/resource_selection"
-        android:id="@+id/textView4"
+        android:text="@string/lesson_selection"
+        android:id="@+id/lesson_selection_title"
+        android:textColor="#FFFFFF"
+        android:textSize="60px"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lesson_grid"
+        android:layout_below="@+id/lesson_selection_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp" />
+        android:numColumns="auto_fit" />
 
 </RelativeLayout>
