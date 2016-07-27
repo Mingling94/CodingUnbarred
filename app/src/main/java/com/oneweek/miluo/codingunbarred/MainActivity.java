@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     // Sandbox button
     public void showSandbox(View view) {
         Intent intent = new Intent(this, DevModeActivity.class);
-        //intent.putExtra("LESSON_NAME", "lesson1");
+        intent.putExtra("LESSON_NAME", "lesson1");
         startActivity(intent);
     }
 }

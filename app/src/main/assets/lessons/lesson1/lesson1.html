@@ -1,100 +1,180 @@
 <!DOCTYPE html>
-<!-- saved from url=(0025)http://www.weirdtube.wtf/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" id="www-widgetapi-script" src="./lesson1_files/www-widgetapi.js" async=""></script><script src="./lesson1_files/iframe_api"></script><script src="./lesson1_files/jquery.min.js"></script>
-<script type="text/javascript" src="./lesson1_files/jQuery.tubeplayer.min.js"></script>
-<link rel="stylesheet" type="text/css" href="./lesson1_files/WeirdStyle.css">
-</head><body class=" hasGoogleVoiceExt"><div id="cssmenu">
-<ul>
-   <li class="active"><a href="http://www.weirdtube.wtf/"><span>Home</span></a></li>
-   
-   
-    <li><a href="http://www.weirdtube.wtf/login"><span>Log In</span></a></li>
-    <li><a href="http://www.weirdtube.wtf/register"><span>Register</span></a></li>
-   
-   <!--<li class='last'><a href='#'><span>About Us</span></a></li>-->
-</ul>
+<html>
+<head>
+	<title> HTML Lesson 1 </title>
+	<style type="text/css">
+
+	body {
+		font-family: "Arimo", sans-serif;
+		font-size: 12pt;
+		background-color: #D1D2D4;
+	}
+
+	h1 {
+		font-family: "Alpha Slab One", sans-serif;
+	}
+
+	h2 {
+		font-family: "Playfair Small Caps", sans-serif;
+	}
+
+	h3 {
+		font-family: "Arimo", sans-serif;
+	}
+
+	.tag, .code {
+		background-color: black;
+		color: white;
+		font-family: monospace;
+		font-size: 14pt;
+	}
+
+	.code {
+		border: solid black 2px;
+		border-radius: 10px;
+	}
+
+	.tag {
+		margin-right: 2px;
+		margin-left: 2px;
+		color: #03A9F4;
+	}
+
+	.tip {
+		color: red;
+		font-size: 10pt;
+	}
+
+	.result {
+		border-radius: 10px;
+		background-color: #FFFFFF;
+		border: solid black 2px;
+	}
+
+	.result, .code {
+		padding: 10px;
+		margin: 5px;
+	}
+
+	</style>
+</head>
+<body>
+
+	<h2>What is HTML?</h2>
+
+	<p>
+		HTML stands for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage. HTML is the language that is used to create and display
+
+		web pages. All web sites, from an individual blog to Microsoft.com are created by writing HTML.
+	</p>
+
+	<h3>How to code in HTML</h3>
+
+	<p>HTML is built on tags, like this:</p>
+
+	<div class="code">
+		<span class="tag">&lt;p&gt;</span>Hello World!<span class="tag">&lt;/p&gt;<span>
+	</div>
+
+
+	<p>In a web browser, like Edge or Chrome, you do not see the tags:</p>
+
+	<div class="result">
+		Hello World!
+	</div>
+
+	<p>
+		Here, we used the paragraph ( <span class="tag">&lt;p&gt;</span> ) tag. The browser sees the start paragraph tag ( <span class="tag">&lt;p&gt;</span> ) and end tag ( <span class="tag">&lt;/p&gt;</span> ), and understands that Hello World is a paragraph.
+	</p>
+
+	<p>
+	Everything you want to display on a web page needs to be enclosed in html tags. So let us look at the
+	basic tags we need to display a web page.
+	</p>
+
+	<h3>The basic tags of all web pages</h3>
+
+	<p>Here we are going to learn the coding tags that are required for all web pages:</p>
+
+	<div class="code">
+		<p class="tag">&lt;!DOCTYPE&gt;</p>
+
+		<p class="tag">&lt;html&gt;</p>
+
+		<p class="tag">&lt;head&gt;</p>
+
+		<p class="tag">&lt;body&gt;</p>
+	</div>
+
+	<p>Every HTML document starts with the <span class="tag">!DOCTYPE</span> tag:</p>
+	<div class="code">
+		<p class="tag">&lt;!DOCTYPE html&gt;</p>
+	</div>
+
+	<p id="tip">Note: The !DOCTYPE tag does not need an end tag.</p>
+
+	<br />
+
+	<p>
+		The next required tag is the html tag. Everything you want to display on the page), goes between the
+
+		start and end html tags:
+	</p>
+	<div class="code">
+		<p class="tag">&lt;!DOCTYPE&gt;</p>
+
+		<p class="tag">&lt;html&gt;</p>
+
+		<p class="tag">&lt;/html&gt;</p>
+	</div>
+
+
+	<h3>Web page title</h3>
+
+	<p>The <span class="tag">&lt;head&gt;</span> tag contains the page title:</p>
+
+	<div class="code">
+		<p class="tag">&lt;head&gt;</p>
+
+		<p><span class="tag">&lt;title&gt;</span> The title of this page <span class="tag">&lt;/title&gt;</span></p>
+
+		<p class="tag">&lt;/head&gt;</p>
+	</div>
+
+	<h3>Body</h3>
+
+	<p>The <span class="tag">&lt;body&gt;</span> tag holds the web content.</p>
+
+	<h3>Putting it all together</h3>
+
+	<p>Combine all these tags, we have a simple HTML file that will display in any web browser:</p>
+
+	<div class="code">
+	<p class="tag">&lt;!DOCTYPE html&gt;</p>
+
+	<p class="tag">&lt;html&gt;</p>
+
+	<p class="tag">&lt;head&gt;</p>
+
+	<p><span class="tag">&lt;title&gt;</span>Lesson 1: What is HTML?<span class="tag">&lt;/title&gt;</span></p>
+
+	<p class="tag">&lt;/head&gt;</p>
+
+	<p class="tag">&lt;body&gt;</p>
+
+	<p> <span class="tag">&lt;p&gt;</span> HTML stands for HyperText Markup Language. <span class="tag">&lt;/p&gt;</span></p>
+
+	<p class="tag">&lt;/body&gt;</p>
+
+	<p class="tag">&lt;/html&gt;</p>
+	</div>
+
+
+<div class="tip">
+	<p>Things to remember:</p>
+
+	<p>HTML tags are not displayed when your code is processed in the web browser. That is because the tags
+	are read by the browser so it will know what kind of content you have written.</p>
 </div>
-
-<div id="title">
-<t1>The Weird Part of YouTube</t1>
-</div>
-<div id="theatre-box">
-<div id="youtube-player-container" class="jquery-youtube-tubeplayer">
-    <a class="playerbutton" onclick="
-    document.querySelector(&quot;#theatre-box&quot;).style.visibility = &quot;hidden&quot;;
-
-    document.querySelector(&quot;#cssmenu&quot;).style.visibility = &quot;visible&quot;;
-    document.querySelector(&quot;#title&quot;).style.visibility = &quot;visible&quot;;
-    document.querySelector(&quot;#gobutt&quot;).style.visibility = &quot;visible&quot;;
-
-    jQuery(&quot;#youtube-player-container&quot;).tubeplayer(&quot;stop&quot;);">
-        <span>Exit</span>
-    </a>
-    <a class="playerbutton" onclick="playNextVid();">
-        <span>Next</span>
-    </a>
-    <br>
-  <iframe id="tubeplayer-player-container-9bfa0c80-30bf-4f73-b7a5-1999704af220" frameborder="0" allowfullscreen="1" title="YouTube video player" width="800" height="600" src="./lesson1_files/pquYAEfbBFM.html"></iframe></div>
-
-<a href="http://www.weirdtube.wtf/#" onclick="jQuery(&quot;#youtube-player-container&quot;).tubeplayer(&quot;play&quot;, document.getElementById(&quot;videoID&quot;).value)">
-
-</a>
-</div>
-    <a class="gobutton" id="gobutt" onclick="document.querySelector(&#39;#theatre-box&#39;).style.visibility = &#39;visible&#39;;
-    document.querySelector(&#39;#cssmenu&#39;).style.visibility = &#39;hidden&#39;;
-    document.querySelector(&#39;#title&#39;).style.visibility = &#39;hidden&#39;;
-    document.querySelector(&#39;#gobutt&#39;).style.visibility = &#39;hidden&#39;;
-    jQuery(&#39;#youtube-player-container&#39;).tubeplayer(&#39;play&#39;);">
-        <span>Get Weird</span>
-    </a>
-
-<script type="text/javascript">
-        function playNextVid() {
-          $.getJSON("./api/getrandomvid", function(vid) {
-            console.log(vid);
-            jQuery("#youtube-player-container").tubeplayer("play", vid.vidID);
-          });
-        }
-        $(document).keydown(function(e) {
-                switch(e.which) {
-                    case 39: // right (fast-forward)
-                      playNextVid();
-                    break;
-                    case 32: // right (fast-forward)
-                      playNextVid();
-                    break;
-                    default: return; // exit this handler for other keys
-                }
-                e.preventDefault(); // prevent the default action (scroll / move caret)
-            });
-
-        jQuery("#youtube-player-container").tubeplayer({
-	width: 800, // the width of the player
-	height: 600, // the height of the player
-	allowFullScreen: "true", // true by default, allow user to go full screen
-	initialVideo: "pquYAEfbBFM", // the video that is loaded into the player
-	preferredQuality: "default",// preferred quality: default, small, medium, large, hd720
-	onPlay: function(id){}, // after the play method is called
-	onPause: function(){}, // after the pause method is called
-	onStop: function(){}, // after the player is stopped
-	onSeek: function(time){}, // after the video has been seeked to a defined point
-	onMute: function(){},
-	onPlayerEnded: function(){
-		playNextVid();
-        },
-	onPlayerPlaying: function(){
-		var theatrebox = document.querySelector("#theatre-box");
-		theatrebox.style.visibility = "visibile";
-
-
-		var title = document.querySelector("#title");
-		title.style.visibility = "hidden";
-	}, // after the player is muted
-	onUnMute: function(){}, // after the player is unmuted
-        // Error State Specific Functionality
-	onErrorNotFound: function(){playNextVid();}, // if a video cant be found
-	onErrorNotEmbeddable: function(){playNextVid();}, // if a video isnt embeddable
-	onErrorInvalidParameter: function(){playNextVid();} // if we've got an invalid param
-});</script>
-
-</body></html>
+</body>
+</html>
