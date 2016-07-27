@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CSS Lesson 1 </title>
+	<style type="text/css">
+
+	body {
+		font-family: "Arimo", sans-serif;
+		font-size: 12pt;
+		background-color: #D1D2D4;
+	}
+
+	h1 {
+		font-family: "Alpha Slab One", sans-serif;
+	}
+
+	h2 {
+		font-family: "Playfair Small Caps", sans-serif;
+	}
+
+	h3 {
+		font-family: "Arimo", sans-serif;
+	}
+
+	.tag, .code {
+		background-color: black;
+		color: white;
+		font-family: monospace;
+		font-size: 14pt;
+	}
+
+	.code {
+		border: solid black 2px;
+		border-radius: 10px;
+	}
+
+	.tag {
+		margin-right: 2px;
+		margin-left: 2px;
+		color: #03A9F4;
+	}
+
+	.tip {
+		color: red;
+		font-size: 10pt;
+	}
+
+	.result {
+		border-radius: 10px;
+		background-color: #FFFFFF;
+		border: solid black 2px;
+	}
+
+	.result, .code {
+		padding: 10px;
+		margin: 5px;
+	}
+
+	</style>
+</head>
+<body>
+
+	<h2> How CSS Works</h2>
+
+	<h3>
+	CSS works by selecting an HTML element (like a paragraph), choosing a property to alter (like the color), and applying a certain value (like red):
+	</h3>
+
+	<div class="code"><p>Example: <span class="tag">p {color: red;}</span> </p></div>
+
+	<h3>CSS is a 3-part process that contains:</h3>
+
+	<p> This whole block (selector/property/value) is a CSS rule.</p>
+
+	<p><span class="tag">selector{property: value;}</span> or you can think of it as <span class="tag"> who{ what: how;} </span></p>
+
+	<p>The  <b>selector</b> defines who is targeted, which HTML element(s)</p>
+
+	<p>The <b>property</b> defines what characteristic to alter</p>
+
+	<p> The <b>value</b> defines how to alter that characteristic</p>
+	
+	<p> A CSS can have multiple selectors and multiple properties.</p>
+
+	<h2>
+	CSS Selectors: How to Target HTML Elements
+	</h2>
+	<p> Because we do not want to style all our HTML elements at once, we need to be able to target a group of these HTML elements.</p>
+
+	<p>CSS selectors define which elements we want our styling to be applied to.</p>
+
+	<b> There are many different ways to select various HTML elements:</b>
+
+	<p> <b> Generic HTML Tags - Targeting generic HTML tags is easy: just use the tag name (like p, a, img, ul, li, etc)</b></p>
+	
+	<div class="code">
+	<p>
+	In CSS: 
+	<br> <span class="tag">a{ /* Links */ }</span> 
+	<br>
+	<span class="tag">a{ /* Paragraphs */ }</span> 
+	<br>
+	<span class="tag">a{ /* Unordered Lists */ }</span> 
+	<br>
+	<span class="tag">a{ /* List Items */ }</span> 
+	<br>	
+	</p></div>
+
+    <p> <b> HTML Classes - if you do not want to style all paragraphs or all titles identically, we need to differentiate them by using HTML Classes. </b> </p>
+
+	<p>Of all HTML attributes, the <span class="tag">class</span> attribute is the most important for CSS. It allows us to define a group of HTML elements that we can target specifically. Just put a dot . in front of the class name you want to use: </p>
+ 
+ <div class="code">
+	<p>In CSS:
+	<br>
+	<span class="tag">.date{</span> 
+	<br>
+	<span class="tag">color: red;</span> 
+	<br>
+	<span class="tag">}</span> 
+	</p>
+
+	<p>In HTML:
+	
+	<span class="tag">&lt;p class="date"&gt;</span> 
+	<br>
+	<span class="tag">Saturday Feb 21 </span>
+	<br>
+	<span class="tag">&lt;/p&gt;</span>
+	<br>
+	<span class="tag">&lt;p&gt;</span>
+	<br>
+	<span class="tag">The event will be on &lt;em</span>
+	<br>
+	<span class="tag">class = "date"&gt;Saturday &lt;/em&gt;
+	</span> 
+	<br>
+    <span class="tag">&lt;/p&gt;</span>
+	</p>
+</div>
+	<p> <b> HTML IDs - You can also use the <span class="tag">id</span> attribute in your HTML, and target it with a hash <span class="tag">#</span> in your CSS:</b> </p>
+	
+	<div class="code">
+	<p>In CSS:
+	<span class="tag">#tagline{ color: orange;}</span> 
+	</p>
+
+	<p>In HTML:
+	<span class="tag">&lt;h1 id="tagline"&gt; This heading will be orange.&lt;/h1&gt;</span> 
+	</p>
+	</div>
+
+	<p> Combined selectors: let us say you wanted to select in CSS all the paragraphs with a main class. To select these elements, you would use <span class="tag">p.main</span><p>
+
+	<p>Parent-Child selectors - A space in a selector defines a ancestor/descendant relationship. Let us say we want the links in our header to be in red:</p>
+
+	<div class="code">
+	<p>
+	<span class="tag">header a {</span> 
+	<br>
+	<span class="tag">color: red;</span> 
+	<br>
+	<span class="tag">}</span> 
+	</p> </div>
+
+	<p> This can be read from right to left as: <i> Select all <span class="tag">a</span> elements that are within a <span class="tag">header</span> element.</i> This will prevent all other links (that are not in the header) from being changed </p>
+
+	<p> <b>You can use the CSS body selector to modify the style of your overall web page. This is helpful if you want all the text in the page to have the same font styles, or if you want to add a background color or image to your overall page. </b> </p>
+		

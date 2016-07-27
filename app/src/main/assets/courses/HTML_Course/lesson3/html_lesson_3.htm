@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> HTML Lesson 2 </title>
+	<style type="text/css">
+
+		body {
+		font-family: "Arimo", sans-serif;
+		font-size: 12pt;
+		background-color: #D1D2D4;
+		}
+
+		h1 {
+		font-family: "Alpha Slab One", sans-serif;
+		}
+
+		h2 {
+		font-family: "Playfair Small Caps", sans-serif;
+		}
+
+		h3 {
+		font-family: "Arimo", sans-serif;
+		}
+
+		.tag, .code {
+		background-color: black;
+		color: white;
+		font-family: monospace;
+		font-size: 14pt;
+		}
+
+		.code {
+		border: solid black 2px;
+		border-radius: 10px;
+		}
+
+		.tag {
+		margin-right: 2px;
+		margin-left: 2px;
+		color: #03A9F4;
+		}
+
+		.tip {
+		color: red;
+		font-size: 10pt;
+		}
+
+		.result {
+		border-radius: 10px;
+		background-color: #FFFFFF;
+		border: solid black 2px;
+		}
+
+		.result, .code {
+		padding: 10px;
+		margin: 5px;
+		}
+
+	</style>
+</head>
+<body>
+<h2>Lesson 3: HTML Structure</h2>
+<p>To write good HTML code, it is important to understand structure. Structure elements allow you to organize the main parts of your page.</p>
+
+<h3>Grouping elements together</h3>
+
+<p>When writing HTML content like paragraphs, lists or links, you provide meaning to your text. But you might want to group some of these elements together.</p>
+
+<p>For example, a simple web page can be divided in parts:<p>
+
+<ul>
+
+	<li>A header, the is the first element on the page and contains similar on every page</li>
+
+	<li>Main content, that changes for every page: a list of articles, a single article with comments, an about page, etc</li>
+
+	<li>List of links to other pages of the web site</li>
+
+	<li>A footer for additional links to less important pages</li>
+</ul>
+
+<p>These parts are defined with the following tags:</p>
+
+<ul>
+
+	<li><span class="tag">&lt;h1&gt;</span> as the title of the page.</li>
+
+	<li><span class="tag">&lt;article&gt;</span> as the main content of the page, like a blog post.</li>
+
+	<li><span class="tag">&lt;footer&gt;</span> as the last element of the page, located at the bottom.</li>
+</ul>
+
+<h3>Adding a header</h3>
+
+<p>The header is usually the first HTML element in the code. Use it to add images, text, and links you want at the top of the web page.</p>
+
+<div class="code">
+	<p class="tag">&lt;header&gt;</p>
+
+	<p class="tag">&lt;p&gt;</p>
+
+	<p class="tag">&lt;a&gt;</p>
+
+	<p class="tag">&lt;img src=&quot;my-logo.jpg&quot; alt=&quot;CodeUnbarred logo&quot;&gt;</p>
+
+	<p class="tag">&lt;/a&gt;</p>
+
+	<p><span class="tag">&lt;em&gt;</span>A cool website<span class="tag">&lt;/em&gt;</span></p>
+
+	<p class="tag">&lt;/p&gt;</p>
+
+	<p class="tag">&lt;/header&gt;</p>
+</div>
+
+<h3>Main content</h3>
+
+<p>The main element contains, as its name suggests, the most important content of the page, the one that defines the purpose of the page. While most webpages of a website contain common elements (like the header, the navigation, the footer), the main element focuses on unique content.</p>
+
+<h3>Headings</h3>
+
+<p>There are 6 levels of headings available, ranging from <span class="tag">&lt;h1&gt;</span> to <span class="tag">&lt;h6&gt;</span>, 1 being the most important one.</p>
+
+<p>Headings are used to create a natural structure to your document.</p>
+
+<p>Only using headings in a HTML document would not make sense: if everything feels important, nothing really is. You need to provide depth in your structure.</p>
+
+<h3>The Footer</h3>
+
+<p>The footer is usually the last element of a page, where the main navigation links are repeated and secondary ones added.</p>
+
+<h3>Footer Example</h3>
+
+<div class="code">
+	<p class="tag">&lt;footer&gt;</p>
+
+	<p><span class="tag">&lt;p&gt;</span>MarkSheet.io | Copyright 2015<span class="tag">&lt;/p&gt;</span></p>
+
+	<p class="tag">&lt;ul&gt;</p>
+
+	<p class="tag">&lt;li&gt;</p>
+
+	<p class="tag">&lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;</p>
+
+	<p class="tag">&lt;/li&gt;</p>
+
+	<p class="tag">&lt;li&gt;</p>
+
+	<p><span class="tag">&lt;a href=&quot;about.html&quot;&gt;</span>About<span class="tag">&lt;/a&gt;</span></p>
+
+	<p class="tag">&lt;/li&gt;</p>
+
+	<p class="tag">&lt;li&gt;</p>
+
+	<p><span class="tag">&lt;a href=&quot;contact.html&quot;&gt;</span>Contact<span class="tag">&lt;/a&gt;</span></p>
+
+	<p class="tag">&lt;/li&gt;</p>
+
+	<p class="tag">&lt;/ul&gt;</p>
+
+	<p class="tag">&lt;ul&gt;</p>
+
+	<p class="tag">&lt;li&gt;</p>
+
+	<p><span class="tag">&lt;a href=&quot;privacy-policy.html&quot;&gt;</span>Privacy Policy<span class="tag">&lt;/a&gt;</span></p>
+
+	<p class="tag">&lt;/li&gt;</p>
+
+	<p class="tag">&lt;li&gt;</p>
+
+	<p><span class="tag">&lt;a href=&quot;terms-of- use.html&quot;&gt;</span>Terms of use<span class="tag">&lt;/a&gt;</span></p>
+
+	<p class="tag">&lt;/li&gt;</p>
+
+	<p class="tag">&lt;/ul&gt;</p>
+
+	<p class="tag">&lt;/footer&gt;</p>
+</div>
+</body>
+</html>
