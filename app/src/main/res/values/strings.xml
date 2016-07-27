@@ -9,6 +9,7 @@
     <!-- Labels -->
     <string name="main">Main</string>
     <string name="course_selection">Course Selection</string>
+    <string name="lesson_selection">Lesson Selection</string>
     <string name="resource_selection">Resource Selection</string>
     <string name="devmode">Developer Mode</string>
     <string name="resource">Resource</string>

@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Iconify.with(new FontAwesomeModule());
 
-        TextView tv1=(TextView)findViewById(R.id.title);
-
+        TextView tv1=(TextView)findViewById(R.id.main_title);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/segoeuil.ttf");
         tv1.setTypeface(face);
 
