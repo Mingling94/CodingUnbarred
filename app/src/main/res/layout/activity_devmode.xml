@@ -38,28 +38,31 @@
         android:orientation="vertical" android:layout_width="300dp"
         android:layout_height="fill_parent">
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:id="@+id/HTMLBox"
         android:layout_weight="0.33"
-        android:hint="HTML Code Here" />
+        android:hint="HTML Code Here"
+        android:gravity="top" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:id="@+id/CSSBox"
         android:layout_weight="0.33"
-        android:hint="CSS Code Here" />
+        android:hint="CSS Code Here"
+        android:gravity="top" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:layout_weight="0.33"
         android:id="@+id/JSBox1"
-        android:hint="Javasript Code Here" />
+        android:hint="Javasript Code Here"
+        android:gravity="top" />
     </LinearLayout>
 
     <WebView
