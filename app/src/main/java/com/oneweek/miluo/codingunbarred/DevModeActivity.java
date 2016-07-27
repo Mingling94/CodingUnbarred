@@ -2,6 +2,7 @@ package com.oneweek.miluo.codingunbarred;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
@@ -11,6 +12,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -35,7 +38,6 @@ public class DevModeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
         String courseName = intent.getStringExtra(COURSE_NAME);
-
 
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
@@ -73,7 +75,7 @@ public class DevModeActivity extends AppCompatActivity {
         WebView webBox = (WebView)findViewById(R.id.WebBox);
         webBox.getSettings().setJavaScriptEnabled(true);
         //fix below code to give it a real path
-        webBox.loadUrl(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
+        webBox.loadUrl(getSavedSnippetFilename(lessonName, HTML_EXTENSION).getAbsolutePath());
     }
 
     private void populateEditors(String htmlSnippet, String cssSnippet, String jsSnippet) {
@@ -116,11 +118,12 @@ public class DevModeActivity extends AppCompatActivity {
     }
 
     private String getDefaultSnippetFilename(String lessonName, String suffix) {
-        return "file:///android_asset/" + lessonName + "/snippets/" + lessonName + suffix;
+
+        return "file:///android_asset/" + lessonName + "/preloadedCode/" + lessonName + suffix;
     }
 
-    private String getSavedSnippetFilename(String lessonName, String suffix) {
-        return new File(new File(lessonName), lessonName + suffix).getPath();
+    private File getSavedSnippetFilename(String lessonName, String suffix) {
+        return new File(new File(getFilesDir(), lessonName), lessonName + suffix);
     }
 
     private String tryReadAsset(String filename) {
@@ -148,13 +151,17 @@ public class DevModeActivity extends AppCompatActivity {
         return buffer.toString();
     }
 
-    private String tryReadFile(String filename) {
-        FileInputStream inputStream;
+    private String tryReadFile(File file) {
+        if (!file.exists())
+        {
+            return null;
+        }
+
         StringBuilder buffer = new StringBuilder();
 
         try {
-            inputStream = openFileInput(filename);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line = reader.readLine();
             while (line != null) {
@@ -162,8 +169,9 @@ public class DevModeActivity extends AppCompatActivity {
                 line = reader.readLine();
             }
 
-            inputStream.close();
+            reader.close();
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
             return null;
         } catch (IOException e) {
             e.printStackTrace();
@@ -173,13 +181,11 @@ public class DevModeActivity extends AppCompatActivity {
         return buffer.toString();
     }
 
-    private void saveFile(String filename, String snippet) {
-        FileOutputStream outputStream;
-
+    private void saveFile(File file, String snippet) {
         try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(snippet.getBytes());
-            outputStream.close();
+            FileWriter writer = new FileWriter(file);
+            writer.write(snippet);
+            writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
