@@ -17,6 +17,8 @@ import java.io.InputStreamReader;
 
 public class DevModeActivity extends AppCompatActivity {
 
+    public static final String COURSE_NAME = "COURSE_NAME";
+
     public static final String LESSON_NAME = "LESSON_NAME";
 
     private static final String HTML_EXTENSION = ".html";
@@ -29,16 +31,16 @@ public class DevModeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devmode);
-        WebView webBox = (WebView)findViewById(R.id.WebBox);
 
         Intent intent = getIntent();
-        String lessonName = intent.getStringExtra("LESSON_NAME");
+        String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
 
 
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
-        lessonBox.loadUrl("file:///android_asset/lessons/" + lessonName + "/" + lessonName + ".html");
+        lessonBox.loadUrl("file:///android_asset/" + "courses/" + courseName + "/lessons/" + lessonName + "/" + lessonName + ".html");
 
         String htmlSnippet = tryReadFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
         String cssSnippet = tryReadFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION));
@@ -65,9 +67,12 @@ public class DevModeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
+
 
         WebView webBox = (WebView)findViewById(R.id.WebBox);
         webBox.getSettings().setJavaScriptEnabled(true);
+        //fix below code to give it a real path
         webBox.loadUrl(getSavedSnippetFilename(lessonName, HTML_EXTENSION));
     }
 
@@ -84,7 +89,9 @@ public class DevModeActivity extends AppCompatActivity {
     private void resetCodeSnippets() {
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
 
+        //fix below code to have course name too
         String htmlSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, HTML_EXTENSION));
         String cssSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, CSS_EXTENSION));
         String jsSnippet = tryReadAsset(getDefaultSnippetFilename(lessonName, JS_EXTENSION));
@@ -96,11 +103,13 @@ public class DevModeActivity extends AppCompatActivity {
     private void saveCodeSnippets() {
         Intent intent = getIntent();
         String lessonName = intent.getStringExtra(LESSON_NAME);
+        String courseName = intent.getStringExtra(COURSE_NAME);
 
         EditText htmlEditor = (EditText)findViewById(R.id.HTMLBox);
         EditText cssEditor = (EditText)findViewById(R.id.CSSBox);
         EditText jsEditor = (EditText)findViewById(R.id.JSBox1);
 
+        //pass coursename in here
         saveFile(getSavedSnippetFilename(lessonName, HTML_EXTENSION), htmlEditor.getText().toString());
         saveFile(getSavedSnippetFilename(lessonName, CSS_EXTENSION), cssEditor.getText().toString());
         saveFile(getSavedSnippetFilename(lessonName, JS_EXTENSION), jsEditor.getText().toString());
