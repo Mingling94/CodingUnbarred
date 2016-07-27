@@ -13,14 +13,19 @@
             android:layout_height="wrap_content"
             android:text="@string/reset_button"
             android:id="@+id/resetButton"
-            android:onClick="resetCodeSnippets"/>
+            android:onClick="resetCodeSnippets"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/orange_button"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/run_button"
             android:id="@+id/runButton"
-            android:onClick="runCode"/>
+            android:onClick="runCode"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/buttonborder"
+            />
     </LinearLayout>
 
     <HorizontalScrollView
