@@ -3,6 +3,7 @@ package com.oneweek.miluo.codingunbarred;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.webkit.WebView;
 import android.widget.EditText;
 import java.io.BufferedReader;
@@ -38,7 +39,8 @@ public class DevModeActivity extends AppCompatActivity {
         //code to load in the lesson
         WebView lessonBox = (WebView)findViewById(R.id.LessonBox);
         lessonBox.getSettings().setJavaScriptEnabled(true);
-        lessonBox.loadUrl(getAssetLessonFilename());
+        String filename = "file:///android_asset/courses/" + courseName + "/" + lessonName + "/" + lessonName + HTML_EXTENSION;
+        lessonBox.loadUrl(filename);
 
         String htmlSnippet = tryReadFile(getSavedSnippetFile(HTML_EXTENSION));
         String cssSnippet = tryReadFile(getSavedSnippetFile(CSS_EXTENSION));
