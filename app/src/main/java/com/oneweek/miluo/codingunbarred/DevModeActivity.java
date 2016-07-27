@@ -1,6 +1,7 @@
 package com.oneweek.miluo.codingunbarred;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
@@ -45,7 +46,6 @@ public class DevModeActivity extends AppCompatActivity {
         } else {
             this.resetCodeSnippets();
         }
-
         this.runCode();
     }
 
@@ -61,7 +61,11 @@ public class DevModeActivity extends AppCompatActivity {
 
         WebView webBox = (WebView)findViewById(R.id.WebBox);
         webBox.getSettings().setJavaScriptEnabled(true);
-        webBox.loadUrl(getSavedSnippetFile(HTML_EXTENSION).getAbsolutePath());
+        webBox.getSettings().setDomStorageEnabled(true);
+        webBox.getSettings().setDatabaseEnabled(true);
+        String file = getSavedSnippetFile(HTML_EXTENSION).getAbsolutePath();
+        //todo This breaks for css and other files. its crazy that this doesn't work with loadurl. It might actually work so test it. Possable workaround is to add the css and javascript to a temp html file.
+        webBox.loadData(tryReadFile(getSavedSnippetFile(HTML_EXTENSION)), "text/html; charset=UTF-8", null);
     }
 
     private void populateEditors(String htmlSnippet, String cssSnippet, String jsSnippet) {
