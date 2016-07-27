@@ -158,7 +158,7 @@ public class DevModeActivity extends AppCompatActivity {
 
             String line = reader.readLine();
             while (line != null) {
-                buffer.append(buffer);
+                buffer.append(line);
                 line = reader.readLine();
             }
 
