@@ -14,8 +14,6 @@ public class ResourceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource);
-        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // setSupportActionBar(toolbar);
 
         WebView webview;
         webview = (WebView) findViewById(R.id.wv);
@@ -24,17 +22,10 @@ public class ResourceActivity extends AppCompatActivity {
         // Enable Javascript
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webview.loadUrl("http://devdocs.io/offline");
 
+        webview.loadUrl("file:///assets/htmlCheatSheet.html");
+        //webview.loadUrl("http://google.com");
 
-    }
-
-    // TODO: might not be needed, depends on the way we set up the webpage caches
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService( CONNECTIVITY_SERVICE );
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     public class WebC extends WebViewClient {
