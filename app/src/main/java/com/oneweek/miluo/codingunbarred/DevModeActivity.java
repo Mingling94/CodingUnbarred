@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import java.io.BufferedReader;
@@ -54,6 +55,14 @@ public class DevModeActivity extends AppCompatActivity {
         super.onPause();
 
         this.saveCodeSnippets();
+    }
+
+    protected void resetButtonClick(View v) {
+        resetCodeSnippets();
+    }
+
+    protected void runButtonClick(View v) {
+        runCode();
     }
 
     private void runCode() {
