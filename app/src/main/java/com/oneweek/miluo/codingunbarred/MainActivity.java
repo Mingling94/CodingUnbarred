@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
+
+
         TextView tv1=(TextView)findViewById(R.id.main_title);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/segoeuil.ttf");
         tv1.setTypeface(face);
@@ -50,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
     // Sandbox button
     public void showSandbox(View view) {
         Intent intent = new Intent(this, DevModeActivity.class);
-        intent.putExtra("LESSON_NAME", "lesson1");
-        intent.putExtra("COURSE_NAME", "HTML_Course");
+        intent.putExtra("LESSON_NAME", DevModeActivity.SANDBOX);
+        intent.putExtra("COURSE_NAME", DevModeActivity.SANDBOX);
         startActivity(intent);
     }
 }
