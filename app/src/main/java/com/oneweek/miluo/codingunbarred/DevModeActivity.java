@@ -7,7 +7,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
