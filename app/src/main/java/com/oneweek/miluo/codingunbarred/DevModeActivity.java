@@ -1,9 +1,7 @@
 package com.oneweek.miluo.codingunbarred;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
@@ -157,6 +155,7 @@ public class DevModeActivity extends AppCompatActivity {
             String line = reader.readLine();
             while (line != null) {
                 buffer.append(line);
+                buffer.append("\n");
                 line = reader.readLine();
             }
 
@@ -185,6 +184,7 @@ public class DevModeActivity extends AppCompatActivity {
             String line = reader.readLine();
             while (line != null) {
                 buffer.append(line);
+                buffer.append("\n");
                 line = reader.readLine();
             }
 
